@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WealthFlow // Financial Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">WealthFlow</div>
+            <nav>
+                <a href="#" class="active"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+                <a href="#"><i data-lucide="wallet"></i> Budgeting</a>
+                <a href="#"><i data-lucide="trending-up"></i> Slow Investing</a>
+                <a href="#"><i data-lucide="credit-card"></i> Spending</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>Welcome Back, Investor</h1>
+                <p>Here's your financial overview today.</p>
+            </header>
+
+            <section class="kpi-grid">
+                <div class="card kpi">
+                    <h3>Total Net Worth</h3>
+                    <p class="amount">$124,500.00</p>
+                    <span class="trend up">+4.2% this month</span>
+                </div>
+                <div class="card kpi">
+                    <h3>Monthly Spending</h3>
+                    <p class="amount">$2,840.50</p>
+                    <span class="trend down">12% under budget</span>
+                </div>
+                <div class="card kpi">
+                    <h3>Slow Investment Pool</h3>
+                    <p class="amount">$42,100.00</p>
+                    <span class="trend up">+8.5% YTD</span>
+                </div>
+            </section>
+
+            <section class="charts-grid">
+                <div class="card chart-container large">
+                    <h3>Investment Growth vs. Spending Trend</h3>
+                    <canvas id="lineChart"></canvas>
+                </div>
+                <div class="card chart-container small">
+                    <h3>Asset Allocation (Budget)</h3>
+                    <canvas id="doughnutChart"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
