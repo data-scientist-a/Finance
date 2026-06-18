@@ -73,4 +73,10 @@ const doughnutChart = new Chart(ctxDoughnut, {
         },
         cutout: '75%' // Makes the inner circle larger for a modern thin look
     }
+    
 });
+const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+});
+console.log(formatter.format(42100)); // "$42,100.00"
