@@ -68,6 +68,8 @@ body {
 
 /* Main Content Styling */
 .main-content {
+    grid-column: 2;   /* forces it into the second column */
+    width: 100%; 
     padding: 2.5rem;
     overflow-y: auto;
 }
