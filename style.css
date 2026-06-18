@@ -107,3 +107,11 @@ header p { color: var(--text-muted); margin-top: 0.5rem; }
     .sidebar { display: none; } /* For simplicity, hide sidebar on mobile */
     .charts-grid { grid-template-columns: 1fr; }
 }
+
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.1); /* subtle green glow on hover */
+}
