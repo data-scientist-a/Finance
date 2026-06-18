@@ -1,0 +1,76 @@
+// Initialize Lucide Icons
+lucide.createIcons();
+
+// --- 1. LINE CHART: Investment vs Spending ---
+const ctxLine = document.getElementById('lineChart').getContext('2d');
+
+// Create gradients for a premium glow look
+const investGradient = ctxLine.createLinearGradient(0, 0, 0, 400);
+investGradient.addColorStop(0, 'rgba(16, 185, 129, 0.4)');
+investGradient.addColorStop(1, 'rgba(16, 185, 129, 0)');
+
+const lineChart = new Chart(ctxLine, {
+    type: 'line',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+            label: 'Slow Investing Portfolio',
+            data: [35000, 36500, 38000, 37200, 39500, 42100],
+            borderColor: '#10b981',
+            backgroundColor: investGradient,
+            fill: true,
+            tension: 0.4, // Makes the line beautifully curved
+            borderWidth: 3
+        }, {
+            label: 'Monthly Spending',
+            data: [3100, 2900, 3400, 2800, 3100, 2840],
+            borderColor: '#8b5cf6',
+            fill: false,
+            tension: 0.4,
+            borderWidth: 2,
+            borderDash: [5, 5] // Dashed line for contrast
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { labels: { color: '#f3f4f6' } }
+        },
+        scales: {
+            y: {
+                grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                ticks: { color: '#9ca3af' }
+            },
+            x: {
+                grid: { display: false },
+                ticks: { color: '#9ca3af' }
+            }
+        }
+    }
+});
+
+// --- 2. DOUGHNUT CHART: Asset Allocation ---
+const ctxDoughnut = document.getElementById('doughnutChart').getContext('2d');
+
+const doughnutChart = new Chart(ctxDoughnut, {
+    type: 'doughnut',
+    data: {
+        labels: ['Stocks/ETFs', 'Crypto', 'Cash', 'Real Estate'],
+        datasets: [{
+            data: [55, 10, 15, 20],
+            backgroundColor: ['#10b981', '#8b5cf6', '#3b82f6', '#f59e0b'],
+            borderWidth: 0, // Removes harsh borders
+            hoverOffset: 10
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: { color: '#f3f4f6', padding: 20 }
+            }
+        },
+        cutout: '75%' // Makes the inner circle larger for a modern thin look
+    }
+});
