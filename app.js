@@ -80,3 +80,43 @@ const formatter = new Intl.NumberFormat('en-US', {
     currency: 'USD',
 });
 console.log(formatter.format(42100)); // "$42,100.00"
+
+// =========================================================
+// 5. INTERACTIVITY & DYNAMIC UPDATES
+// =========================================================
+
+// Grab the DOM elements we need
+const financeForm = document.getElementById('financeForm');
+const inputSalary = document.getElementById('inputSalary');
+const inputSpending = document.getElementById('inputSpending');
+
+// Grab the HTML elements for the text blocks we want to change dynamically
+// (To make this work seamlessly, add id="kpiSpending" to your monthly spending amount in HTML)
+const spendingKpiText = document.querySelector('.kpi-grid .card:nth-child(2) .amount'); 
+
+// Listen for the form submission
+financeForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Stop the page from reloading on form submit
+
+    // 1. Get values from inputs and convert them to numbers
+    const salaryVal = parseFloat(inputSalary.value) || 0;
+    const spendingVal = parseFloat(inputSpending.value) || 0;
+
+    // 2. Update the HTML text on the KPI cards dynamically using our formatter
+    spendingKpiText.innerText = formatter.format(spendingVal);
+
+    // 3. Update the Line Chart data
+    // Let's replace the last month's spending (index 5 in our data array) with the new input
+    lineChart.data.datasets[1].data[5] = spendingVal; 
+    lineChart.update(); // CRITICAL: This forces Chart.js to redraw with smooth animations
+
+    // 4. Update the Doughnut Chart data dynamically
+    // Let's pretend our allocation changes based on remaining savings (Salary minus Spending)
+    const savings = Math.max(0, salaryVal - spendingVal);
+    
+    // Let's update the 'Cash' chunk (index 2) and 'Stocks' chunk (index 0) of the doughnut chart
+    doughnutChart.data.datasets[0].data[2] = savings > 0 ? (savings / salaryVal) * 100 : 0;
+    doughnutChart.update(); // Re-render the doughnut chart animations
+
+    alert("Dashboard updated successfully!");
+});
