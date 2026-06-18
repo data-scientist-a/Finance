@@ -120,3 +120,27 @@ financeForm.addEventListener('submit', function(event) {
 
     alert("Dashboard updated successfully!");
 });
+
+// =========================================================
+// 6. NAVIGATION NAVIGATION SYSTEM (SPA ROUTE)
+// =========================================================
+const navLinks = document.querySelectorAll('#sidebar-nav a');
+const views = document.querySelectorAll('.dashboard-view');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault(); // Stop page from reloading
+
+        // 1. Remove active styling from all links, add to clicked link
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+
+        // 2. Hide all views
+        views.forEach(view => view.style.display = 'none');
+
+        // 3. Show the targeted view
+        const targetViewId = this.getAttribute('data-target');
+        document.getElementById(targetViewId).style.display = 'block';
+    });
+});
+
