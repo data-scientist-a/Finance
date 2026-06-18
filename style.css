@@ -1,12 +1,14 @@
+
 :root {
-    --bg-primary: #0b0f19;
-    --bg-secondary: #151b2c;
-    --bg-card: #1e2640;
-    --text-main: #f3f4f6;
-    --text-muted: #9ca3af;
-    --accent-green: #10b981;
-    --accent-purple: #8b5cf6;
-    --border-color: rgba(255, 255, 255, 0.08);
+    --bg-primary: #0a0d14; /* darker, richer base */
+    --bg-secondary: rgba(21, 27, 44, 0.85); /* transparent overlay */
+    --bg-card: rgba(30, 38, 64, 0.75); /* glass effect */
+    --text-main: #f5f6fa; /* softer white */
+    --text-muted: #a1a6b3; /* refined muted tone */
+    --accent-green: #14c38e; /* elegant emerald */
+    --accent-purple: #7c3aed; /* deeper royal purple */
+    --border-color: rgba(255, 255, 255, 0.06); /* lighter border */
+    --shadow-color: rgba(0, 0, 0, 0.4); /* deeper shadow */
 }
 
 * {
