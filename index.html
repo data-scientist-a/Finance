@@ -25,6 +25,22 @@
                 <h1>Welcome Back, Investor</h1>
                 <p>Here's your financial overview today.</p>
             </header>
+            <section class="card input-form-section" style="margin-bottom: 2.5rem;">
+    <h3>Update Your Financial Data</h3>
+    <form id="financeForm" style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 150px;">
+            <label style="display:block; font-size:0.85rem; color:var(--text-muted);">Current Salary ($)</label>
+            <input type="number" id="inputSalary" value="5000" style="width:100%; padding:0.6rem; background:var(--bg-primary); border:1px solid var(--border-color); color:white; border-radius:6px; margin-top:0.4rem;">
+        </div>
+        <div style="flex: 1; min-width: 150px;">
+            <label style="display:block; font-size:0.85rem; color:var(--text-muted);">Current Month Spending ($)</label>
+            <input type="number" id="inputSpending" value="2840" style="width:100%; padding:0.6rem; background:var(--bg-primary); border:1px solid var(--border-color); color:white; border-radius:6px; margin-top:0.4rem;">
+        </div>
+        <div style="display: flex; align-items: flex-end;">
+            <button type="submit" style="background:var(--accent-green); color:var(--bg-primary); font-weight:600; border:none; padding:0.6rem 1.2rem; border-radius:6px; cursor:pointer;">Update Dashboard</button>
+        </div>
+    </form>
+</section>
 
             <section class="kpi-grid">
                 <div class="card kpi">
